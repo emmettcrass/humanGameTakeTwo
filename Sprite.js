@@ -1,5 +1,8 @@
 class Sprite
 {
+//this file holds gameObjects and animations
+
+
 	constructor(config)
 	{
 
@@ -16,7 +19,7 @@ class Sprite
 		this.useShadow = true; //config.useShadow || false
 		if (this.useShadow)
 		{
-			this.shadow.src = "/images/characters/shadow.png";
+			this.shadow.src = "/assets/imgs/chars/glow.png";
 		}
 
 		this.shadow.onload = () =>
@@ -118,10 +121,10 @@ class Sprite
 
 		this.isLoaded && ctx.drawImage(
 			this.image,
-			frameX * 32, frameY * 32,
-			32, 32,
+			frameX * 80, frameY * 143,
+			80, 143,
 			x, y,
-			32, 32,
+			64, 64,
 		)
 
 		this.updateAnimationProgress();

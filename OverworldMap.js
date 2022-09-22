@@ -6,8 +6,8 @@ class OverworldMap {
       this.lowerImage = new Image();
       this.lowerImage.src = config.lowerSrc;
   
-      this.upperImage = new Image();
-      this.upperImage.src = config.upperSrc;
+      // this.upperImage = new Image();
+      // this.upperImage.src = config.upperSrc;
     }
   
     drawLowerImage(ctx, cameraPerson) {
@@ -18,13 +18,13 @@ class OverworldMap {
         )
     }
   
-    drawUpperImage(ctx, cameraPerson) {
-      ctx.drawImage(
-        this.upperImage, 
-        utils.withGrid(10.5) - cameraPerson.x, 
-        utils.withGrid(6) - cameraPerson.y
-      )
-    } 
+    // drawUpperImage(ctx, cameraPerson) {
+    //   ctx.drawImage(
+    //     this.upperImage, 
+    //     utils.withGrid(10.5) - cameraPerson.x, 
+    //     utils.withGrid(6) - cameraPerson.y
+    //   )
+    // } 
   
     isSpaceTaken(currentX, currentY, direction) {
       const {x,y} = utils.nextPosition(currentX, currentY, direction);
@@ -55,20 +55,15 @@ class OverworldMap {
   }
   
   window.OverworldMap = {
-    DemoRoom: {
-      lowerSrc: "/images/maps/DemoLower.png",
-      upperSrc: "/images/maps/DemoUpper.png",
+    BedRoom: {
+      lowerSrc: "assets/imgs/bRoom/bedroom.png",
+      // upperSrc: "/images/maps/DemoUpper.png",
       gameObjects: {
-        hero: new Person({
+        grub: new Person({
           isPlayerControlled: true,
           x: utils.withGrid(5),
           y: utils.withGrid(6),
         }),
-        npc1: new Person({
-          x: utils.withGrid(7),
-          y: utils.withGrid(9),
-          src: "/images/characters/people/npc1.png"
-        })
       },
       walls: {
         [utils.asGridCoords(7,6)] : true,
@@ -77,23 +72,63 @@ class OverworldMap {
         [utils.asGridCoords(8,7)] : true,
       }
     },
-    Kitchen: {
-      lowerSrc: "/images/maps/KitchenLower.png",
-      upperSrc: "/images/maps/KitchenUpper.png",
+    Transit: {
+      lowerSrc: "/assets/imgs/class/class.png",
+      // upperSrc: "/images/maps/KitchenUpper.png",
       gameObjects: {
-        hero: new GameObject({
+        grub: new GameObject({
           x: 3,
           y: 5,
         }),
         npc2: new GameObject({
           x: 9,
           y: 6,
-          src: "/images/characters/people/npc2.png"
+          src: "/assets/imgs/chars/teacher/teacherLs.png"
         }),
         npc3: new GameObject({
           x: 10,
           y: 8,
-          src: "/images/characters/people/npc3.png"
+          src: "/assets/imgs/chars/teacher/teacherLs.png"
+        })
+      }
+    },
+    Classroom: {
+      lowerSrc: "/images/maps/KitchenLower.png",
+      // upperSrc: "/images/maps/KitchenUpper.png",
+      gameObjects: {
+        grub: new GameObject({
+          x: 3,
+          y: 5,
+        }),
+        knee: new GameObject({
+          x: 9,
+          y: 6,
+          src: "/assets/imgs/chars/knee/kneeLs.png"
+        }),
+        npc3: new GameObject({
+          x: 10,
+          y: 8,
+          src: "/assets/imgs/chars/teacher/teacherLs.png"
+        })
+      }
+    },
+    Bathroom: {
+      lowerSrc: "/images/maps/KitchenLower.png",
+      // upperSrc: "/images/maps/KitchenUpper.png",
+      gameObjects: {
+        grub: new GameObject({
+          x: 3,
+          y: 5,
+        }),
+        npc2: new GameObject({
+          x: 9,
+          y: 6,
+          src: "/assets/imgs/chars/teacher/teacherLs.png"
+        }),
+        npc3: new GameObject({
+          x: 10,
+          y: 8,
+          src: "/assets/imgs/chars/teacher/teacherLs.png"
         })
       }
     },
