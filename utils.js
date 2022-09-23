@@ -2,7 +2,7 @@ const utils = {
   withGrid(n) {
     return n * 32;
   },
-  asGridCoord(x,y) {
+  asGridCoords(x,y) {
     return `${x*32},${y*32}`
   },
   nextPosition(initialX, initialY, direction) {

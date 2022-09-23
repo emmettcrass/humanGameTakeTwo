@@ -18,26 +18,9 @@ class OverworldMap {
         )
     }
   
-    // drawUpperImage(ctx, cameraPerson) {
-    //   ctx.drawImage(
-    //     this.upperImage, 
-    //     utils.withGrid(10.5) - cameraPerson.x, 
-    //     utils.withGrid(6) - cameraPerson.y
-    //   )
-    // } 
-
     isSpaceTaken(currentX, currentY, direction) {
       const {x,y} = utils.nextPosition(currentX, currentY, direction);
       return this.walls[`${x},${y}`] || false;
-    }
-  
-    mountObjects() {
-      Object.values(this.gameObjects).forEach(o => {
-  
-        //TODO: determine if this object should actually mount
-        o.mount(this);
-  
-      })
     }
   
     mountObjects() {
@@ -66,7 +49,6 @@ class OverworldMap {
   window.OverworldMap = {
     BedRoom: {
       lowerSrc: "assets/imgs/bRoom/bedroom.png",
-      // upperSrc: "/images/maps/DemoUpper.png",
       gameObjects: {
         grub: new Person({
           isPlayerControlled: true,
@@ -74,11 +56,13 @@ class OverworldMap {
           y: utils.withGrid(5),
         }),
       },
-      wallsSrc: "assets/imgs/bRoom/desk.png",
       walls: {
         [utils.asGridCoords(-3,4)] : true,
         [utils.asGridCoords(4,3)] : true,
         [utils.asGridCoords(-3,3)] : true,
+        [utils.asGridCoords(-3,4)] : true,
+        [utils.asGridCoords(-3,5)] : true,
+        [utils.asGridCoords(-3,6)] : true,
       }
     },
     Transit: {
