@@ -25,10 +25,19 @@ class OverworldMap {
     //     utils.withGrid(6) - cameraPerson.y
     //   )
     // } 
-  
+
     isSpaceTaken(currentX, currentY, direction) {
       const {x,y} = utils.nextPosition(currentX, currentY, direction);
       return this.walls[`${x},${y}`] || false;
+    }
+  
+    mountObjects() {
+      Object.values(this.gameObjects).forEach(o => {
+  
+        //TODO: determine if this object should actually mount
+        o.mount(this);
+  
+      })
     }
   
     mountObjects() {
@@ -61,23 +70,15 @@ class OverworldMap {
       gameObjects: {
         grub: new Person({
           isPlayerControlled: true,
-          x: utils.withGrid(5),
-          y: utils.withGrid(6),
+          x: utils.withGrid(0),
+          y: utils.withGrid(5),
         }),
       },
+      wallsSrc: "assets/imgs/bRoom/desk.png",
       walls: {
-        [utils.asGridCoords(4,1)] : true,
-        [utils.asGridCoords(4,2)] : true,
+        [utils.asGridCoords(-3,4)] : true,
         [utils.asGridCoords(4,3)] : true,
-        [utils.asGridCoords(4,4)] : true,
-        [utils.asGridCoords(4,5)] : true,
-        [utils.asGridCoords(4,6)] : true,
-        [utils.asGridCoords(4,7)] : true,
-        [utils.asGridCoords(4,8)] : true,
-        [utils.asGridCoords(4,9)] : true,
-        [utils.asGridCoords(4,10)] : true,
-        [utils.asGridCoords(4,11)] : true,
-        [utils.asGridCoords(4,12)] : true,
+        [utils.asGridCoords(-3,3)] : true,
       }
     },
     Transit: {
