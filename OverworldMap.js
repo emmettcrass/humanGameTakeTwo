@@ -13,8 +13,8 @@ class OverworldMap {
     drawLowerImage(ctx, cameraPerson) {
       ctx.drawImage(
         this.lowerImage, 
-        utils.withGrid(6) - cameraPerson.x, 
-        utils.withGrid(6) - cameraPerson.y
+        utils.withGrid(6.5) - cameraPerson.x, 
+        utils.withGrid(7.5) - cameraPerson.y
         )
     }
   
@@ -53,16 +53,16 @@ class OverworldMap {
         grub: new Person({
           isPlayerControlled: true,
           x: utils.withGrid(0),
-          y: utils.withGrid(5),
+          y: utils.withGrid(0),
         }),
       },
       walls: {
-        [utils.asGridCoords(-3,4)] : true,
+        [utils.asGridCoords(1,3)] : true,
+        [utils.asGridCoords(2,3)] : true,
+        [utils.asGridCoords(3,3)] : true,
         [utils.asGridCoords(4,3)] : true,
-        [utils.asGridCoords(-3,3)] : true,
-        [utils.asGridCoords(-3,4)] : true,
-        [utils.asGridCoords(-3,5)] : true,
-        [utils.asGridCoords(-3,6)] : true,
+        [utils.asGridCoords(5,3)] : true,
+        [utils.asGridCoords(6,3)] : true,
       }
     },
     Transit: {
@@ -70,7 +70,7 @@ class OverworldMap {
       // upperSrc: "/images/maps/KitchenUpper.png",
       gameObjects: {
         grub: new GameObject({
-          x: 3,
+          x: 2,
           y: 5,
         }),
         npc2: new GameObject({

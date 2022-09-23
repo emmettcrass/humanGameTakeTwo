@@ -26,7 +26,7 @@ class Person extends GameObject {
       if (this.isPlayerControlled && state.arrow) {
         this.startBehavior(state, {
           type: "walk",
-          direction: state.arrow
+          direction: state.arrow,
         })
       }
       this.updateSprite(state);
@@ -46,7 +46,7 @@ class Person extends GameObject {
 
       //Ready to walk!
       state.map.moveWall(this.x, this.y, this.direction);
-      this.movingProgressRemaining = 16;
+      this.movingProgressRemaining = 32;
     }
   }
 
