@@ -13,7 +13,7 @@ class OverworldMap {
     drawLowerImage(ctx, cameraPerson) {
       ctx.drawImage(
         this.lowerImage, 
-        utils.withGrid(10.5) - cameraPerson.x, 
+        utils.withGrid(6) - cameraPerson.x, 
         utils.withGrid(6) - cameraPerson.y
         )
     }
@@ -66,10 +66,18 @@ class OverworldMap {
         }),
       },
       walls: {
-        [utils.asGridCoords(7,6)] : true,
-        [utils.asGridCoords(8,6)] : true,
-        [utils.asGridCoords(7,7)] : true,
-        [utils.asGridCoords(8,7)] : true,
+        [utils.asGridCoords(4,1)] : true,
+        [utils.asGridCoords(4,2)] : true,
+        [utils.asGridCoords(4,3)] : true,
+        [utils.asGridCoords(4,4)] : true,
+        [utils.asGridCoords(4,5)] : true,
+        [utils.asGridCoords(4,6)] : true,
+        [utils.asGridCoords(4,7)] : true,
+        [utils.asGridCoords(4,8)] : true,
+        [utils.asGridCoords(4,9)] : true,
+        [utils.asGridCoords(4,10)] : true,
+        [utils.asGridCoords(4,11)] : true,
+        [utils.asGridCoords(4,12)] : true,
       }
     },
     Transit: {

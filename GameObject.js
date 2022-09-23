@@ -6,13 +6,13 @@ class GameObject {
       this.direction = config.direction || "down";	
       this.sprite = new Sprite({	
         gameObject: this,	
-        src: config.src || "/assets/imgs/chars/grub/grubLs.png",	
+        src: config.src || "/assets/imgs/anim/grubAnim.png",	
       });	
     }	
     mount(map) {	
-      console.log("mounting!")	
       this.isMounted = true;	
       map.addWall(this.x, this.y);	
+      console.log("wall here!")	
     }	
     update() {	
     }	

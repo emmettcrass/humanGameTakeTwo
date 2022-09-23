@@ -31,47 +31,73 @@ class Sprite
 		this.animations = config.animations ||
 		{
 			"idle-down": [
-				[0, 0]
+				[0, 0],
 			],
 			"idle-right": [
-				[0, 1]
+				[4, 2],
+				[0, 3],
+				[1, 3],
+				[2, 3],
+				[3, 3],
+				[4, 3],
+				[0, 4],
+				[1, 4],
+				[2, 4],
+				[3, 4],
+				[4, 4],
+				[0, 5],
 			],
 			"idle-up": [
-				[0, 2]
+				[0, 0],
 			],
 			"idle-left": [
-				[0, 3]
+				[1, 0],
+				[2, 0],
+				[3, 0],
+				[4, 0],
+				[0, 1],
+				[1, 1],
+				[2, 1],
+				[3, 1],
+				[4, 1],
+				[0, 2],
+				[1, 2],
+				[2, 2],
+				[3, 2],
 			],
 			"walk-down": [
-				[1, 0],
-				[0, 0],
-				[3, 0],
-				[0, 0],
+				[1, 5],
+				[2, 5],
+				[3, 5],
+				[4, 5],
+				[0, 6],
 			],
 			"walk-right": [
-				[1, 1],
-				[0, 1],
-				[3, 1],
-				[0, 1],
+				[1, 7],
+				[2, 7],
+				[3, 7],
+				[4, 7],
+				[0, 8],
 			],
 			"walk-up": [
-				[1, 2],
-				[0, 2],
-				[3, 2],
-				[0, 2],
+				[1, 8],
+				[2, 8],
+				[3, 8],
+				[4, 8],
 			],
 			"walk-left": [
-				[1, 3],
-				[0, 3],
-				[3, 3],
-				[0, 3],
+				[1, 6],
+				[2, 6],
+				[3, 6],
+				[4, 6],
+				[0, 7],
 			]
 		}
 
 		this.currentAnimation = "idle-right"; // config.currentAnimation || "idle-down";
 		this.currentAnimationFrame = 0;
 
-		this.animationFrameLimit = config.animationFrameLimit || 8;
+		this.animationFrameLimit = config.animationFrameLimit || 13;
 		this.animationFrameProgress = this.animationFrameLimit;
 		//ref game obj
 		this.gameObject = config.gameObject;
@@ -112,8 +138,8 @@ class Sprite
 
 	draw(ctx, cameraPerson)
 	{
-		const x = this.gameObject.x - 8 + utils.withGrid(10.5) - cameraPerson.x;
-		const y = this.gameObject.y - 18 + utils.withGrid(6) - cameraPerson.y;
+		const x = this.gameObject.x - 8 + utils.withGrid(5.5) - cameraPerson.x;
+		const y = this.gameObject.y - 18 + utils.withGrid(3) - cameraPerson.y;
 
 		this.isShadowLoaded && ctx.drawImage(this.shadow, x, y);
 
@@ -121,10 +147,10 @@ class Sprite
 
 		this.isLoaded && ctx.drawImage(
 			this.image,
-			frameX * 80, frameY * 143,
-			80, 143,
+			frameX * 179, frameY * 196,
+			179, 196,
 			x, y,
-			64, 64,
+			179, 196,
 		)
 
 		this.updateAnimationProgress();
